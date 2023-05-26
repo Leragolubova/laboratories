@@ -1,13 +1,12 @@
 import csv
 
 
-inp = input()
-with open(inp) as csvfile:
+input_file = input()
+with open(input_file) as csvfile:
     reader = csv.DictReader(csvfile)
     sm = 0
     for row in reader:
-        sm += row['Количество'] * row['Цена']
-        print(row['Продукт'] + '-' + str(row['Количество']) + 'шт. за' + row['Цена'] + 'руб.')
+        sm += int(row['Quantity']) * int(row['Price'])
+        print(str(row['Product']) + ' - ' + str(row['Quantity']) + 'шт. за ' + str(row['Price']) + ' руб.')
 
-    print('Итоговая сумма:' + sm + 'руб.')
-
+    print('Итоговая сумма: ' + str(sm) + ' руб.')
